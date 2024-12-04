@@ -1,0 +1,20 @@
+name: Create dev release
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    types: [openend, reopened, synchronize]
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v6
+        with:
+          config-name: release-drafter-dev.yml
+          publish: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
