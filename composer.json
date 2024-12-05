@@ -1,0 +1,25 @@
+{
+  "name": "tchevalleraud/php-sdk-gns3",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thibault CHEVALLERAUD",
+      "email": "thibault.chevalleraud@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Tchevalleraud\\GNS3\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "phpunit/phpcov": "^10",
+    "phpunit/phpunit": "^11",
+    "php-coveralls/php-coveralls": "^2"
+  }
+}
