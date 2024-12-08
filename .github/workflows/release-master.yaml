@@ -18,10 +18,7 @@ jobs:
           coverage: xdebug
           tools: php-cs-fixer, phpunit, composer
       - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: |
-          composer composer install --prefer-dist --no-progress
-          sleep 10
+      - uses: php-actions/composer@v6
       - name: Execute tests
         run: |
           php vendor/bin/phpunit --configuration phpunit.xml.dist
