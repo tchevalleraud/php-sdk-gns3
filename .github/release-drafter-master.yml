@@ -32,7 +32,6 @@ version-resolver:
       - 'release/patch'
   default: patch
 sort-direction: ascending
-prerelease: true
 template: |
   ## Changes
 
