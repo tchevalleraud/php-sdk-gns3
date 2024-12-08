@@ -1,4 +1,7 @@
 <?php
+    use PHPUnit\Framework\Attributes\CoversClass;
+
+    #[CoversClass(\Tchevalleraud\GNS3\GNS3::class)]
     class GNS3Test extends \PHPUnit\Framework\TestCase {
 
         public function testGNS3_instanceOf(){
