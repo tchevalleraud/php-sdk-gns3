@@ -1,6 +1,6 @@
-name: ":rocket: Feature Request"
+name: "🚀 Feature Request"
 description: Create a new ticket for a new feature request
-title: ":rocket: [REQUEST] - <title>"
+title: "🚀 [FEATURE] - <title>"
 labels: [
   "question"
 ]
