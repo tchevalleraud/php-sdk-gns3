@@ -29,7 +29,7 @@
 
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory>./src</directory>
+            <directory>./tests</directory>
         </whitelist>
     </filter>
 </phpunit>
