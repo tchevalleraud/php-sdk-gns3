@@ -14,8 +14,13 @@
         </testsuite>
     </testsuites>
 
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </coverage>
+
     <logging>
-        <clover outputFile="coverage.xml"/>
         <junit outputFile="junit.xml"/>
     </logging>
 </phpunit>
