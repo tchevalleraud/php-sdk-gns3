@@ -16,7 +16,7 @@ jobs:
           sleep 10
       - name: Execute tests with docker
         run: |
-          docker run --rm --user $(id -u):$(id -g) -v "$PWD":/usr/src/myapp -w /usr/src/myapp -e XDEBUG_MODE=coverage mileschou/xdebug:8.2 vendor/bin/phpunit --configuration phpunit.xml.dist
+          docker run --rm --user $(id -u):$(id -g) -v "$PWD":/usr/src/myapp -w /usr/src/myapp -e XDEBUG_MODE=coverage mileschou/xdebug:8.1 vendor/bin/phpunit --configuration phpunit.xml.dist
           sleep 10
       - name: Upload tests results
         uses: actions/upload-artifact@v4
