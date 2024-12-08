@@ -1,5 +1,7 @@
 ###> Project
+.codacy-coverage
 .phpunit.*
+clover.xml
 composer.lock
 junit.xml
 phpunit.xml
