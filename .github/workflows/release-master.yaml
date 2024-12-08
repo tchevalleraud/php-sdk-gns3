@@ -6,6 +6,25 @@ on:
   pull_request:
     types: [openend, reopened, synchronize]
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies with docker
+        run: |
+          docker run --rm --user $(id -u):$(id -g) -v "$PWD":/app composer composer install --prefer-dist --no-progress
+          sleep 10
+      - name: Execute tests with docker
+        run: |
+          docker run --rm --user $(id -u):$(id -g) -v "$PWD":/usr/src/myapp -w /usr/src/myapp -e XDEBUG_MODE=coverage mileschou/xdebug:8.1 vendor/bin/phpunit --configuration phpunit.xml.dist
+          sleep 10
+      - name: Upload tests results
+        uses: actions/upload-artifact@v2
+        with:
+          name: phpunit
+          path: |
+            coverage.xml
+            phpunit.xml
   update_release_draft:
     permissions:
       contents: write
