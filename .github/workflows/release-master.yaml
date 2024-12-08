@@ -28,7 +28,7 @@ jobs:
         with:
           name: phpunit
           path: |
-            coverage.xml
+            clover.xml
             junit.xml
   update_release_draft:
     needs: build
