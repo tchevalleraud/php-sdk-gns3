@@ -38,10 +38,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: phpunit
-      - name: Upload coverage results to Codacy
-        env:
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_TOKEN }}
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r clover.xml
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1.3.0
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: ./clover.xml
   update_release_draft:
     needs: build
     permissions:
