@@ -44,6 +44,25 @@ jobs:
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+  test-snyk:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, intl
+          ini-values: post_max_size=256M, max_execution_time=180
+          coverage: xdebug
+          tools: php-cs-fixer, phpunit, composer
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/php@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   update_release_draft:
     needs: build
     permissions:
