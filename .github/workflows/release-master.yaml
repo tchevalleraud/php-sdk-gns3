@@ -30,6 +30,18 @@ jobs:
           path: |
             clover.xml
             junit.xml
+  test-codacy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: phpunit
+      - name: Upload coverage results to Codacy
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_TOKEN }}
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
   update_release_draft:
     needs: build
     permissions:
