@@ -26,4 +26,10 @@
     <logging>
         <junit outputFile="junit.xml"/>
     </logging>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory>./src</directory>
+        </whitelist>
+    </filter>
 </phpunit>
