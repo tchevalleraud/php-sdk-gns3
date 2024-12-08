@@ -26,6 +26,7 @@ jobs:
             coverage.xml
             phpunit.xml
   update_release_draft:
+    needs: build
     permissions:
       contents: write
       pull-requests: write
