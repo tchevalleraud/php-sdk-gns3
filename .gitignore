@@ -1,3 +1,12 @@
+###> Project
+.phpunit.*
+composer.lock
+coverage.xml
+phpunit.xml
+/scripts/
+/vendor/
+###< Project
+
 ###> PHPStorm
 /.idea
 ###< PHPStorm
