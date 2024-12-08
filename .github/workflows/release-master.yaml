@@ -19,17 +19,14 @@ jobs:
           tools: php-cs-fixer, phpunit, composer
       - uses: actions/checkout@v4
       - uses: php-actions/composer@v6
-      - name: Execute tests
-        run: |
-          php vendor/bin/phpunit --configuration phpunit.xml.dist
-          sleep 10
+      - uses: carlosabcs/lumen-phpunit-action@master
       - name: Upload tests results
         uses: actions/upload-artifact@v4
         with:
           name: phpunit
           path: |
             coverage.xml
-            phpunit.xml
+            junit.xml
   update_release_draft:
     needs: build
     permissions:
