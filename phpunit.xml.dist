@@ -18,13 +18,12 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <report>
+            <clover outputFile="clover.xml"/>
+        </report>
     </coverage>
 
     <logging>
         <junit outputFile="junit.xml"/>
     </logging>
-
-    <report>
-        <clover outputFile="clover.xml"/>
-    </report>
 </phpunit>
