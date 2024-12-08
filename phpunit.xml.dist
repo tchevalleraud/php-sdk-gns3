@@ -23,4 +23,8 @@
     <logging>
         <junit outputFile="junit.xml"/>
     </logging>
+
+    <report>
+        <clover outputFile="clover.xml"/>
+    </report>
 </phpunit>
