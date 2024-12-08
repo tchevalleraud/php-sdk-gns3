@@ -13,4 +13,9 @@
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
+
+    <logging>
+        <clover outputFile="coverage.xml"/>
+        <junit outputFile="junit.xml"/>
+    </logging>
 </phpunit>

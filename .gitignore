@@ -1,7 +1,7 @@
 ###> Project
 .phpunit.*
 composer.lock
-coverage.xml
+junit.xml
 phpunit.xml
 /scripts/
 /vendor/
